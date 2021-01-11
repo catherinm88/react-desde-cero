@@ -4,6 +4,24 @@
 import "./styles/styles.scss";
 import Curso from './curso.jsx';
 
+const cursos = [
+  {
+    title: "React desde cero",
+    image: "https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png",
+    price: 30
+  },
+  {
+    title: "HTML desde cero",
+    image: "https://www.caracteristicas.co/wp-content/uploads/2017/03/ciudad-3-e1565900111723.jpg",
+    price: 50
+  },
+  {
+    title: "Go desde cero",
+    image: "https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg",
+    price: 20
+  },
+]
+
 const App = () => (
   <>
     <div className="main-banner img-container l-section" id="main-banner">
@@ -19,8 +37,15 @@ const App = () => (
       </div>
     </div>
     <div className="ed-grid m-grid-3">
-      <Curso />
-      <Curso />
+      {/* <Curso
+        title="React desde cero" 
+        image="https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png" 
+        price="20 USD"
+      /> */}
+      {
+        /** Por cada curso voy a devolver un elemento Curso */
+        cursos.map( c => <Curso title={c.title} image={c.image} price={c.price} /> )
+      }
     </div>
   </>
 ) 

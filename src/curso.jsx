@@ -1,29 +1,32 @@
 import React from 'react';
-
-const Curso = () => (
+import PropTypes from 'prop-types';
+//const Curso = props => (
+const Curso = ({title, image, price}) => (
     <article className="card">
         <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-            <img src="https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png" alt="curso" />
+            <img src={image} alt={title} />
         </div>
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
             <h3 className="t5 s-mb-2 s-center">
-            Programación orientada a objetos con Go
+                {title}
             </h3>
-            <div className="s-mb-2 s-main-center">
-            <div className="card__teacher s-cross-center">
-                <div className="card__avatar s-mr-1">
-                <div className="circle img-container">
-                    <img src="https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png" alt="profesor" />
-                </div>
-                </div>
-                <span className="small">Alexys Lozada</span>
-            </div>
-            </div>
             <div className="s-main-center">
-            <a className="button--ghost-alert button--tiny" href="/">$ 20USD</a>
+            <a className="button--ghost-alert button--tiny" href="/">{`$ ${price}`}</a>
             </div>
         </div>
     </article>
 ) 
+
+Curso.propTypes = {
+    title: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.string
+}
+
+Curso.defaultProps = {
+    title: "No se encontró título",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Taipei_Skyline_2015.jpg/1200px-Taipei_Skyline_2015.jpg",
+    price: "Gratis"
+}
 
 export default Curso;
